@@ -1,0 +1,4 @@
+::ng-deep.mat-date-range-input-end-wrapper {
+    flex-grow: 1;
+    max-width: 75px;
+}

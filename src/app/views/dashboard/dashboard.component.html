@@ -1,0 +1,142 @@
+<div class="animated fadeIn">
+ 
+  <!--/.card-->
+ 
+  <div class="row" fxLayout="row wrap" fxLayoutGap="16px grid" >
+
+
+
+    <div class="column" fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%">
+          <div class="card">
+                   <div class="card-header">
+                     Sentiments
+     
+                    </div>
+           <div class="card-body">
+               <div class="chart-wrappers">
+                 
+                         <canvas baseChart class="chart"
+                         [data]="pieChartData"
+                         [labels]="pieChartLabels"
+                         [options]="chartOptions"
+                         [chartType]="pieChartType"
+                         [colors]="chartColors"
+                         ></canvas>
+                      </div>
+                 </div>
+        
+            </div>
+          </div>
+    
+
+
+
+
+
+
+ 
+
+
+
+            <div class="column" fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%">
+              <div class="card">
+                       <div class="card-header">
+                        Share Comments
+         
+                        </div>
+               <div class="card-body">
+                   <div class="chart-wrapper">
+                   
+                          <canvas baseChart class="chart"
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [chartType]="doughnutChartType"
+                          [options]="chartOptions"
+                          [colors]="chartColors"
+                          ></canvas>
+                          
+                     </div>
+                   
+                </div>
+              </div>
+        </div>
+
+
+
+
+
+
+        
+
+        <div class="column" fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%">
+          <div class="card">
+                   <div class="card-header">
+                    BuzzWords
+     
+                    </div>
+           <div class="card-body">
+               <div class="chart-wrapper" >
+                   
+                      <angular-tag-cloud [config]="options" [data]="buzzWordData" >
+              
+                      </angular-tag-cloud>
+                      
+                 </div>
+        
+            </div>
+          </div>
+    </div>
+
+  
+    
+  </div>
+  
+  <div class="card">
+    <div class="card-header">
+      <form [formGroup]="form">
+      <div id="element1">
+        <mat-date-range-input [rangePicker]="picker" formGroupName="daterange" >
+          <input matStartDate placeholder="Start date" formControlName="start" />
+          <input matEndDate placeholder="End date" formControlName="end" />
+        </mat-date-range-input>
+      </div>
+      <div id="element2">
+        <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker ></mat-date-range-picker>
+      </div>
+      
+      <button type="button" (click)="onSubmit()" class="btn btn-outline-success">Select</button>
+    </form>
+     </div>
+     
+<div class="card-body">
+  <div class="row" >
+   
+    <div class="col-sm-6 col-md-2" *ngFor="let product of productList">
+      <div  [ngClass]="{'card text-white bg-danger': product.polarity == 'negative', 'card text-white bg-success':product.polarity == 'positive', 'card text-white bg-warning':product.polarity == 'neutral'}">
+        <div class="card-body">
+          <div class="h1 text-muted text-right mb-4">
+            <i class="icon-basket-loaded"></i>
+          </div>
+          <div class="h4 mb-0">Score : {{product.score_product}}%</div>
+          <small class="text-muted text-uppercase font-weight-bold">{{product.product_name}}</small>
+          <div class="progress progress-white progress-xs mt-3">
+            <div class="progress-bar" role="progressbar" style="width: 25%" [attr.aria-valuenow]="product.score_product" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div><!--/.col-->
+    
+  </div><!--/.row-->
+    </div>
+  </div>
+ 
+ 
+  </div>
+ 
+ 
+ 
+
+
+
+    
