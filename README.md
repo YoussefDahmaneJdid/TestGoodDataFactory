@@ -61,19 +61,19 @@ Within the download you'll find the following directories and files, logically g
 
 ## Dashboard main Folder ...
 
-
+```
 src/
 │   ├── app/
 │          ├── views/
 │             ├── dashboard/
 │                          ├── data/
 │                                  ├── buzzWords.ts
-                                   ├── products.ts
-                                   ├── sentiment.ts
-                           ├── dashboard-routing.module.ts
-                           ├── dashboard.componeent.html
-                           ├── dashboard.componeent.ts
-                           ├── dashboard.componeent.css
-                           ├── dashboard.module.ts
-
+│                                  ├── products.ts
+│                                  ├── sentiment.ts
+│                          ├── dashboard-routing.module.ts
+│                          ├── dashboard.componeent.html
+│                          ├── dashboard.componeent.ts
+│                          ├── dashboard.componeent.css
+│                          ├── dashboard.module.ts
 │   └── ...
+```
